@@ -3,6 +3,11 @@ export type AppConfig = {
   port: number;
 };
 
+export type JWTConfig = {
+  jwtSecret: string;
+  jwtExpired: string;
+};
+
 export type DatabaseConfig = {
   type: string;
   host: string;
@@ -23,4 +28,5 @@ export type AllConfigType = {
   app: AppConfig;
   database: DatabaseConfig;
   redis: RedisConfig;
+  jwt: JWTConfig;
 };

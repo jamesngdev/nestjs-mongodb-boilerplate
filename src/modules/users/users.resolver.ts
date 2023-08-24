@@ -1,4 +1,4 @@
-import { Args, Query, Resolver, Mutation } from '@nestjs/graphql';
+import { Args, Resolver, Mutation, Query } from '@nestjs/graphql';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
@@ -7,11 +7,9 @@ import { UsersService } from './users.service';
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
-  @Query(() => User)
-  hello() {
-    return {
-      name: 'Minh Tri',
-    };
+  @Query(() => String)
+  hello(): string {
+    return 'Hello!';
   }
 
   @Mutation(() => User)

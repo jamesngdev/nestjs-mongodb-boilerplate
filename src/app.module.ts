@@ -9,12 +9,14 @@ import databaseConfig from './configs/database.config';
 import redisConfig from './configs/redis.config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { AuthModule } from './modules/auth/auth.module';
+import jwtConfig from './configs/jwt.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [appConfig, databaseConfig, redisConfig],
+      load: [appConfig, databaseConfig, redisConfig, jwtConfig],
       envFilePath: ['.env'],
     }),
     TypeOrmModule.forRootAsync({
@@ -27,6 +29,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
       driver: ApolloDriver,
       autoSchemaFile: 'src/schema.gql',
     }),
+    AuthModule,
     UsersModule,
   ],
   controllers: [],

@@ -10,7 +10,7 @@ export class User {
 
   @Field(() => String)
   @Column({ length: 500 })
-  name: string;
+  username: string;
 
   @Field(() => String)
   @Column()

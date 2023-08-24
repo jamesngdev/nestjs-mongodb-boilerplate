@@ -1,7 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql';
 
-@InputType({ isAbstract: true })
-export class CreateUserDto {
+@InputType('LoginWithLocalInput')
+export class LoginWithLocalInput {
   @Field()
   username: string;
 
