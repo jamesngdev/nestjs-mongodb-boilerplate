@@ -12,7 +12,15 @@ export type DatabaseConfig = {
   username: string;
 };
 
+export type RedisConfig = {
+  host: string;
+  port: number;
+  username?: string;
+  password?: string;
+};
+
 export type AllConfigType = {
   app: AppConfig;
   database: DatabaseConfig;
+  redis: RedisConfig;
 };
