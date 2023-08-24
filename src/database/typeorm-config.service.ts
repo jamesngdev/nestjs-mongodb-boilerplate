@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
-import { AllConfigType } from '../configs/config.type';
+import { AllConfigType } from '../modules/configs/config.type';
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
