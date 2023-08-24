@@ -7,6 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 import appConfig from './configs/app.config';
 import databaseConfig from './configs/database.config';
 import redisConfig from './configs/redis.config';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
 @Module({
   imports: [
@@ -20,6 +22,10 @@ import redisConfig from './configs/redis.config';
       dataSourceFactory: async (options: DataSourceOptions) => {
         return new DataSource(options).initialize();
       },
+    }),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
+      autoSchemaFile: 'src/schema.gql',
     }),
     UsersModule,
   ],
